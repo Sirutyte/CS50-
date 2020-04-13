@@ -1,0 +1,38 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int get_positive_int(string prompt)
+{
+    int y;
+    do
+    {
+        y = get_int("%s", prompt);
+    }
+    while (y < 1);
+    return y;
+}
+
+int main(void)
+{
+    int n;
+    do {
+      n = get_positive_int("What should be the height of the pyramyd\n"); 
+    
+      printf("Height: %d\n",n);
+
+    } while (n<1 || n>8);
+
+    for (int i=0; i<n; i++)
+    {
+        for (int z = 0; z < n-i; z++){
+            printf(" ");
+        }
+    
+        for (int j=0; j<i; j++)
+        { 
+            printf("#");
+        }
+
+        printf("\r\n");
+}
+}
