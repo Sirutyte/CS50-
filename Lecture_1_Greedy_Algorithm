@@ -1,36 +1,42 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(void)
 
 {
     float change_owed;
-    do {
-        change_owed=get_float("What is the change owed?\n");
-        printf("Change owed:%.2f\n",change_owed);
-    } while (change_owed<0);
- 
-int num25=0, num10=0, num5=0, num1=0;
- while (change_owed>=25)
-    {  num25++;
-       change_owed=change_owed-25;
-}
+    do 
+    {
+        change_owed = get_float("Change owed: \n");
+        //printf("Change owed:%.2f\n",change_owed);
+    } 
+    while (change_owed < 0);
+    //turn dollars to cents to avoid rounding issues
+    int cents = round(change_owed * 100);
+    //generate 4 variables to represent 4 different coins
+    int num25 = 0, num10 = 0, num5 = 0, num1 = 0;
+    while (cents >= 25)
+    {  
+        num25++;
+        cents = cents - 25;
+    }
+    while (cents >= 10)
+    {  
+        num10++;
+        cents = cents - 10;
+    }  
+    while (cents >= 5)
+    {  
+        num5++;
+        cents = cents - 5;
+    }  
+    while (cents >= 1)
+    { 
+        num1++;
+        cents = cents - 1;
+    }  
 
- while (change_owed>=10)
-     {  num10++;
-        change_owed=change_owed-10;
-        }  
-
- while (change_owed>=5)
-     {  num5++;
-        change_owed=change_owed-5;
-        }  
-
- while (change_owed>=1)
-      { num1++;
-        change_owed=change_owed-1;
-        }  
-
-        printf("Number of coins needed: %i\n", num25+num10+num5+num1);
+    printf("%i\n", num25 + num10 + num5 + num1);
 
 }
