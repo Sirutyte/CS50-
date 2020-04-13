@@ -1,0 +1,36 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+
+{
+    float change_owed;
+    do {
+        change_owed=get_float("What is the change owed?\n");
+        printf("Change owed:%.2f\n",change_owed);
+    } while (change_owed<0);
+ 
+int num25=0, num10=0, num5=0, num1=0;
+ while (change_owed>=25)
+    {  num25++;
+       change_owed=change_owed-25;
+}
+
+ while (change_owed>=10)
+     {  num10++;
+        change_owed=change_owed-10;
+        }  
+
+ while (change_owed>=5)
+     {  num5++;
+        change_owed=change_owed-5;
+        }  
+
+ while (change_owed>=1)
+      { num1++;
+        change_owed=change_owed-1;
+        }  
+
+        printf("Number of coins needed: %i\n", num25+num10+num5+num1);
+
+}
