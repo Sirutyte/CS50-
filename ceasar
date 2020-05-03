@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+//This program is going to transform the words/letter into cipertext
+
+int main(int argc, string argv[])
+{
+
+    if (argc == 2 && isdigit(*argv[1]))
+    {
+        int k = atoi(argv[1]);
+
+        if (k < 0)
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
+
+        else
+        {
+//prompt for text
+            string text = get_string("plaintext: ");
+//create integer i - counter and n - lenght of text
+            int i;
+            int n = strlen(text);
+
+            char result[50];
+//create loop for repaeating the action the number of times = the number of letters in the text
+            for (i = 0;  i < n; i++)
+            {
+                if islower(text[i])
+                {
+//saving transformed result and it's lower case form  
+                    result[i] = (((text[i] + k) - 97) % 26) + 97;
+                }
+                else if isupper(text[i])
+                {
+//saving transformed result and it's upper case form                      
+                    result[i] = (((text[i] + k) - 65) % 26) + 65;
+                }
+                else
+                {
+//printing other character as it is (for example, spaces etc.)       
+                    result[i] = text[i];
+                }
+            }
+            result[n] = '\0';
+//print the cipertext result
+            printf("ciphertext: %s\n", result);
+            return 0;
+        }
+
+    }
+    else
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+    }
+}
+
