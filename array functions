@@ -1,0 +1,52 @@
+
+#create an addtion function
+def my_function(a,b):
+ 	return a + b 
+	print(my_function(7,3))
+
+#create a function for printing name & age
+def my_print( name, age ):
+   print ("Name: ", name) 
+   print ("Age: ", age)
+   return;
+     
+my_print(name="Irma", age=23)
+my_print(name="Andrew", age=20)
+
+
+#get an item in an array - string
+my_list=["Irma", "Andrew"]
+print(my_list[0])  
+
+#get an item in an array - integer
+my_numbers=[5, 10, 15, 31,6]
+print(my_numbers[3])
+
+#get an item in an array - characters
+my_char="Irma"
+print(my_char[1])
+
+
+
+#define an array of strings
+name_list = ['Andrew', 'Irma', 'Bali']
+
+# string in the list
+if 'Lisa' in name_list:
+    print('Lisa is present in the list')
+
+# string not in the list
+if 'Lisa' not in name_list:
+    print('Lisa is not present in the list')
+       
+# string in the list
+if 'Andrew' in name_list:
+	print('Andrew is present in the list')
+
+# string not in the list
+if 'Andrew' not in name_list:
+	print('Andrew not present in the list')
+
+
+
+
